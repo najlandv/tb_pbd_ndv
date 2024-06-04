@@ -1,0 +1,198 @@
+
+*{
+    font-family: 'Cartoon', sans-serif;
+}
+
+a{
+    text-decoration: none;
+    color:#000;
+}
+
+.hero{
+    height:400px;
+    object-fit: cover;
+    border-radius: 8px;
+}
+
+.grid{
+    display:grid;
+    grid-template-columns: repeat(auto-fill,minmax(140px,1fr));
+    gap:30px;
+    place-items: center;
+}
+
+.card-barang{
+    place-items: center;
+    box-shadow: rgba(0, 0, 0, 0.05) 0px 1px 2px 0px;
+    transition:.3s;
+}
+
+.card-barang:hover{
+    box-shadow: rgba(0, 0, 0, 0.2) 0px 18px 50px -10px;
+}
+.harga-barang{
+    font-size:18px;
+    color:rgb(221, 68, 175);
+    font-weight:700;
+    margin-top:-10px;
+}
+
+.nama-barang{
+    font-size:16px;
+}
+.deskripsi{
+    font-size:14px;
+    color:grey;
+}
+
+.card-img-top{
+    width:120px;
+}
+.nama-barang-detail{
+    font-size:25px;
+    font-weight:500;
+    margin-top:-17px;
+}
+.klaim-barang-detail{
+    color:grey;
+    font-size:18px;
+}
+.harga-barang-detail{
+    font-size:38px;
+    margin-left:15px;
+    margin-top:-10px;
+    color:rgb(210, 37, 170);
+    font-weight:700;
+}
+
+.gambar-detail{
+    width:200px;
+}
+
+.card-body-detail{
+    margin-left:-80px;
+}
+
+.detail-row .col p{
+ font-weight:400;
+ color:grey;
+}
+.detail-row .col .sub-title{
+    color:#333;
+    margin-top:-18px;
+}
+
+.con-pelanggan{
+    display:flex;
+    justify-content: start;
+    align-items: start;
+    box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px;
+    height:350px;
+    padding:40px;
+    border-radius: 5px;
+}
+
+.tombol-ubah{
+    background:rgb(220, 217, 217);  
+    transition:.3s;
+}
+
+.tombol-ubah:hover{
+    background:rgb(186, 186, 186);   
+}
+
+.row-data-pelanggan .col p{
+    font-size:17px;
+    font-weight:500;
+}
+
+.row-data-pelanggan .col .data-pelanggan{
+    font-size:17px;
+    font-weight:200;
+    color:grey;
+}
+
+.con-barang{
+    padding-bottom:200px;
+}
+
+.con-barang input{
+    width:50%;
+}
+
+.con-alamat {
+    display:flex;
+    align-items: start;
+    justify-content: start;
+    
+}
+
+.sub-con-alamat{
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 0px 0px 1px;
+    padding:20px;
+    border-radius:8px;
+    margin:10px;
+}
+
+.alamat{
+    color:grey;
+}
+
+.sub-con-metodePembayaran{
+    padding:20px;
+    border-radius:8px;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 0px 0px 1px;
+    height:143px;
+    margin-top:9px;
+}
+
+.metode-pem-sel{
+    background:rgb(249, 249, 249);
+    margin-top:15px;
+    border-radius:50px;
+    padding:10px 20px;
+    
+}
+.metode-pem-sel:hover{
+    cursor:pointer;
+}
+
+.list-group-item{
+    padding:10px;
+}
+
+.aboutUs{
+    font-size:50px;
+    color:#da0c87;
+    font-weight:800;
+}
+
+.a-barang{
+    transition:.3s;
+    width: 180px;
+}
+
+.a-barang:hover{
+    color:grey;
+}
+
+.bg-purple {
+    background-color: purple;
+}
+
+.alert-light-purple {
+    background-color: #d8b5ff; 
+    color: #000000; 
+    border-color: #d8b5ff; 
+}
+
+.deskripsi-barang-container {
+    max-width: 90%;
+    margin: 0 auto; 
+    text-align: justify;
+    padding: 10px; 
+    border: 1px solid #ccc; 
+    border-radius: 8px; 
+    background-color: #f8f9fa; 
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
+}
