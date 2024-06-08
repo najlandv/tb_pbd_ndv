@@ -56,7 +56,10 @@ $routes->get('/pages/editBarang/(:segment)', 'Pages::editBarang/$1');
 $routes->post('/pages/updateBarang/(:segment)', 'Pages::updateBarang/$1');
 $routes->get('/pages/hapusBarang/(:segment)', 'Pages::hapusBarang/$1');
 
-$routes->get('/pages/homeKategori/(:segment)', 'Pages::homeKategori/$1');
+$routes->get('/pages/kategoriSkincare', 'Pages::kategoriSkincare');
+
+$routes->get('/pages/kategoriMakeup', 'Pages::kategoriMakeup');
+// $routes->get('/pages/kategoriMakeup/(:segment)', 'Pages::kategoriMakeup/$1');
 $routes->match(['get','post'],'/pages/saveBarang', 'Pages::saveBarang');
 $routes->add('/pages/savePenjual', 'Pages::savePenjual');
 $routes->add('/pages/savePesanan', 'Pages::savePesanan');

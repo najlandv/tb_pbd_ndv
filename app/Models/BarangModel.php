@@ -8,7 +8,7 @@ class BarangModel extends Model
 {
     protected $primaryKey = 'idBarang';
     protected $table      = 'barang';
-    protected $allowedFields = ['idBarang', 'idKategori','namaBarang', 'deskripsi', 'caraPemakaian', 'komposisiBarang', 'klaimBarang', 'tanyaJawab', 'noBpom', 'hargaBarang', 'gambar'];
+    protected $allowedFields = ['idBarang', 'idKategori','namaBarang', 'stokBarang', 'deskripsi', 'caraPemakaian', 'komposisiBarang', 'klaimBarang', 'tanyaJawab', 'noBpom', 'hargaBarang', 'gambar'];
     protected $useAutoIncrement = false;
 
     public function getBarang($id = false){

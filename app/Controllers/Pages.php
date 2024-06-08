@@ -54,19 +54,77 @@ class Pages extends BaseController
         }
     }
 
-    public function homeKategori($id) {
-        $data = [
-            'barang' => $this->BarangModel->getBarang()->where('idKategori', $id)
+    // public function homeKategori($id) {
+    //     $data = [
+    //         'barang' => $this->BarangModel->getBarang()->where('idKategori', $id)
             
-        ];
-        dd($data);
-        // return view('pages/homeKategori', $data);
-    }
+    //     ];
+    //     dd($data);
+    //     // return view('pages/homeKategori', $data);
+    // }
+
+    public function kategoriSkincare()
+    {
 
 
+        // // Cek apakah pengguna login dan merupakan admin
+        // if (logged_in() && in_groups('admin')) {
+        //     return view('pages/dashboard', $data);
+        // } else {
+        //     return view('pages/home', $data);
+    
+    
+    $allBarang = $this->BarangModel->getBarang();
+    $kategori = $this->KategoriModel->getKategori();
+    
+    // Filter products by category ID 'ak-pa'
+    $filteredBarang = array_filter($allBarang, function($barang) {
+        return $barang['idKategori'] === 'K1';
+    });
+
+    // Prepare data for the view
+    $data = [
+        'barang' => $filteredBarang,
+        'kategori' => $kategori,
+        'pengiriman' => $this->PengirimanModel->getPengiriman(),
+        'pembayaran' => $this->PembayaranModel->getPembayaran(),
+        'pelanggan' => $this->PelangganModel->getPelanggan(),
+        'pemesanan' => $this->PemesananModel->getPemesanan()
+    ];
+    return view('pages/kategoriSkincare', $data);
+}
 
 
+public function kategoriMakeup()
+{
 
+
+    // // Cek apakah pengguna login dan merupakan admin
+    // if (logged_in() && in_groups('admin')) {
+    //     return view('pages/dashboard', $data);
+    // } else {
+    //     return view('pages/home', $data);
+
+
+$allBarang = $this->BarangModel->getBarang();
+$kategori = $this->KategoriModel->getKategori();
+
+// Filter products by category ID 'ak-pa'
+$filteredBarang = array_filter($allBarang, function($barang) {
+    return $barang['idKategori'] === 'K2';
+});
+
+// Prepare data for the view
+$data = [
+    'barang' => $filteredBarang,
+    'kategori' => $kategori,
+    'pengiriman' => $this->PengirimanModel->getPengiriman(),
+    'pembayaran' => $this->PembayaranModel->getPembayaran(),
+    'pelanggan' => $this->PelangganModel->getPelanggan(),
+    'pemesanan' => $this->PemesananModel->getPemesanan()
+];
+return view('pages/kategoriMakeup', $data);
+}
     public function detail($id) {
         $pelanggan = $this->PelangganModel->findAll();
         $pembayaran = $this->PembayaranModel->findAll();
@@ -168,7 +226,20 @@ public function updateBarang($id)
         
         'namaBarang' => $this->request->getVar('namaBarang'),
         'idKategori' => $this->request->getVar('idKategori'),
-        'hargaBarang' => $this->request->getVar('hargaBarang')
+        'hargaBarang' => $this->request->getVar('hargaBarang'),
+
+        // 'idBarang' => $this->request->getVar('idBarang'),
+        // 'idKategori' => $this->request->getVar('kategori'), 
+        // 'namaBarang' => $this->request->getVar('namaBarang'),
+        'stokBarang' => $this->request->getVar('stokBarang'),
+        'deskripsi' => $this->request->getVar('deskripsi'),
+        'caraPemakaian' => $this->request->getVar('caraPemakaian'),
+        'komposisiBarang' => $this->request->getVar('komposisiBarang'),
+        'klaimBarang' => $this->request->getVar('klaimBarang'),
+        'tanyaJawab' => $this->request->getVar('tanyaJawab'),
+        'noBpom' => $this->request->getVar('noBpom'),
+        'gambar' => $this->request->getVar('gambar'),
+        // 'hargaBarang' => $this->request->getVar('hargaBarang'),
     ];
 // dd($data);
     $this->BarangModel->update($id, $data);
@@ -316,6 +387,7 @@ public function hapusBarang($idBarang)
                 'idBarang' => $this->request->getVar('idBarang'),
                 'idKategori' => $this->request->getVar('kategori'), 
                 'namaBarang' => $this->request->getVar('namaBarang'),
+                'stokBarang' => $this->request->getVar('stokBarang'),
                 'deskripsi' => $this->request->getVar('deskripsi'),
                 'caraPemakaian' => $this->request->getVar('caraPemakaian'),
                 'komposisiBarang' => $this->request->getVar('komposisiBarang'),

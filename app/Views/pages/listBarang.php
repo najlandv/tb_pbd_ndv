@@ -9,6 +9,7 @@
                 <th scope="col" class="text-white" >ID</th>
                 <th scope="col" class="text-white" > Nama Barang </th>
                 <th scope="col" class="text-white" > Gambar Barang </th>
+                <th scope="col" class="text-white" > Stok Barang </th>
                 <!-- <th scope="col" class="text-white" > Deskripsi </th> -->
                 <th scope="col" class="text-white" > Klaim Barang </th>
                 <th scope="col" class="text-white" > Harga Barang </th>
@@ -21,6 +22,7 @@
                 <td scope="row" style="vertical-align:middle;"><?= $b['idBarang']; ?></td> 
                 <td scope="row" style="vertical-align:middle;"><?= $b['namaBarang']; ?></td> 
                 <td scope="row" style="vertical-align:middle;"><img src="/img/<?= $b['gambar']; ?>" width="150"></td> 
+                <td scope="row" style="vertical-align:middle;"><?= $b['stokBarang']; ?></td> 
                 <td scope="row" style="vertical-align:middle;"><?= $b['klaimBarang']; ?></td> 
                 <td scope="row" style="vertical-align:middle;">Rp <?= $b['hargaBarang']; ?>.00</td> 
                 <td scope="row" style="vertical-align:middle;">

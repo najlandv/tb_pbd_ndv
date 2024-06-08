@@ -31,6 +31,10 @@
                 </div>
                 <!-- Akhir input untuk kategori -->
                 <div class="mb-3">
+                    <label for="stokBarang" class="form-label">Stok Barang</label>
+                    <input type="text" name="stokBarang" class="form-control" id="stokBarang">
+                </div>
+                <div class="mb-3">
                     <label for="deskripsi" class="form-label">Deskripsi</label>
                     <input type="text" name="deskripsi" class="form-control" id="deskripsi">
                 </div>
