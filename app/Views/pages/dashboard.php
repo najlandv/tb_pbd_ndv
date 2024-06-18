@@ -69,7 +69,7 @@
         </div>
     </div>
     
-    <div class="row mt-4">
+    <!-- <div class="row mt-4">
         <div class="col-md-12">
             <h2 style="color: #4B0082;">
                 <i class="fas fa-history"></i> Recent Activities
@@ -82,11 +82,11 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <!-- Tambahkan baris untuk aktivitas terbaru di sini -->
+                    Tambahkan baris untuk aktivitas terbaru di sini
                 </tbody>
             </table>
         </div>
-    </div>
+    </div> -->
 </div>
 <?= $this->endSection(); ?>
 

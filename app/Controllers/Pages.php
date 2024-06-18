@@ -44,24 +44,13 @@ class Pages extends BaseController
             'pemesanan' => $this->PemesananModel->getPemesanan()
 
         ];
-        // dd($data);
-    
-        // Cek apakah pengguna login dan merupakan admin
+
         if (logged_in() && in_groups('admin')) {
             return view('pages/dashboard', $data);
         } else {
             return view('pages/home', $data);
         }
     }
-
-    // public function homeKategori($id) {
-    //     $data = [
-    //         'barang' => $this->BarangModel->getBarang()->where('idKategori', $id)
-            
-    //     ];
-    //     dd($data);
-    //     // return view('pages/homeKategori', $data);
-    // }
 
     public function kategoriSkincare()
     {
@@ -72,60 +61,61 @@ class Pages extends BaseController
         //     return view('pages/dashboard', $data);
         // } else {
         //     return view('pages/home', $data);
-    
-    
-    $allBarang = $this->BarangModel->getBarang();
-    $kategori = $this->KategoriModel->getKategori();
-    
-    // Filter products by category ID 'ak-pa'
-    $filteredBarang = array_filter($allBarang, function($barang) {
-        return $barang['idKategori'] === 'K1';
-    });
-
-    // Prepare data for the view
-    $data = [
-        'barang' => $filteredBarang,
-        'kategori' => $kategori,
-        'pengiriman' => $this->PengirimanModel->getPengiriman(),
-        'pembayaran' => $this->PembayaranModel->getPembayaran(),
-        'pelanggan' => $this->PelangganModel->getPelanggan(),
-        'pemesanan' => $this->PemesananModel->getPemesanan()
-    ];
-    return view('pages/kategoriSkincare', $data);
-}
 
 
-public function kategoriMakeup()
-{
+        $allBarang = $this->BarangModel->getBarang();
+        $kategori = $this->KategoriModel->getKategori();
+
+        // Filter products by category ID 'ak-pa'
+        $filteredBarang = array_filter($allBarang, function ($barang) {
+            return $barang['idKategori'] === 'K1';
+        });
+
+        // Prepare data for the view
+        $data = [
+            'barang' => $filteredBarang,
+            'kategori' => $kategori,
+            'pengiriman' => $this->PengirimanModel->getPengiriman(),
+            'pembayaran' => $this->PembayaranModel->getPembayaran(),
+            'pelanggan' => $this->PelangganModel->getPelanggan(),
+            'pemesanan' => $this->PemesananModel->getPemesanan()
+        ];
+        return view('pages/kategoriSkincare', $data);
+    }
 
 
-    // // Cek apakah pengguna login dan merupakan admin
-    // if (logged_in() && in_groups('admin')) {
-    //     return view('pages/dashboard', $data);
-    // } else {
-    //     return view('pages/home', $data);
+    public function kategoriMakeup()
+    {
 
 
-$allBarang = $this->BarangModel->getBarang();
-$kategori = $this->KategoriModel->getKategori();
+        // // Cek apakah pengguna login dan merupakan admin
+        // if (logged_in() && in_groups('admin')) {
+        //     return view('pages/dashboard', $data);
+        // } else {
+        //     return view('pages/home', $data);
 
-// Filter products by category ID 'ak-pa'
-$filteredBarang = array_filter($allBarang, function($barang) {
-    return $barang['idKategori'] === 'K2';
-});
 
-// Prepare data for the view
-$data = [
-    'barang' => $filteredBarang,
-    'kategori' => $kategori,
-    'pengiriman' => $this->PengirimanModel->getPengiriman(),
-    'pembayaran' => $this->PembayaranModel->getPembayaran(),
-    'pelanggan' => $this->PelangganModel->getPelanggan(),
-    'pemesanan' => $this->PemesananModel->getPemesanan()
-];
-return view('pages/kategoriMakeup', $data);
-}
-    public function detail($id) {
+        $allBarang = $this->BarangModel->getBarang();
+        $kategori = $this->KategoriModel->getKategori();
+
+        // Filter products by category ID 'ak-pa'
+        $filteredBarang = array_filter($allBarang, function ($barang) {
+            return $barang['idKategori'] === 'K2';
+        });
+
+        // Prepare data for the view
+        $data = [
+            'barang' => $filteredBarang,
+            'kategori' => $kategori,
+            'pengiriman' => $this->PengirimanModel->getPengiriman(),
+            'pembayaran' => $this->PembayaranModel->getPembayaran(),
+            'pelanggan' => $this->PelangganModel->getPelanggan(),
+            'pemesanan' => $this->PemesananModel->getPemesanan()
+        ];
+        return view('pages/kategoriMakeup', $data);
+    }
+    public function detail($id)
+    {
         $pelanggan = $this->PelangganModel->findAll();
         $pembayaran = $this->PembayaranModel->findAll();
         $pengiriman = $this->PengirimanModel->findAll();
@@ -136,7 +126,7 @@ return view('pages/kategoriMakeup', $data);
             'pengiriman' => $pengiriman
         ];
 
-        // dd($data);
+
         return view('pages/detail', $data);
     }
 
@@ -173,7 +163,7 @@ return view('pages/kategoriMakeup', $data);
         $data = [
             'kategori' => $this->KategoriModel->getKategori($id)
         ];
-    
+
         return view('pages/editKategori', $data);
     }
 
@@ -183,7 +173,7 @@ return view('pages/kategoriMakeup', $data);
             'idKategori' => $this->request->getVar('idKategori'),
             'namaKategori' => $this->request->getVar('namaKategori')
         ];
-    
+
         // Periksa apakah ID Kategori diubah
         if ($idKategori !== $data['idKategori']) {
             // Hapus entri lama
@@ -194,65 +184,65 @@ return view('pages/kategoriMakeup', $data);
             // Update entri yang ada
             $this->KategoriModel->update($idKategori, $data);
         }
-    
+
         return redirect()->to('/pages/listKategori');
     }
 
 
 
-public function hapusKategori($id)
-{
-    $this->KategoriModel->delete($id);
+    public function hapusKategori($id)
+    {
+        $this->KategoriModel->delete($id);
 
-    return redirect()->to('/pages/listKategori');
-}
+        return redirect()->to('/pages/listKategori');
+    }
 
 
 
-public function editBarang($id)
-{
-    $data = [
+    public function editBarang($id)
+    {
+        $data = [
 
-        'barang' => $this->BarangModel->getBarang($id),
-        'kategori' => $this->KategoriModel->findAll() // Untuk dropdown kategori
-    ];
+            'barang' => $this->BarangModel->getBarang($id),
+            'kategori' => $this->KategoriModel->findAll() // Untuk dropdown kategori
+        ];
 
-    return view('pages/editBarang', $data);
-}
+        return view('pages/editBarang', $data);
+    }
 
-public function updateBarang($id)
-{
-    $data = [
-        
-        'namaBarang' => $this->request->getVar('namaBarang'),
-        'idKategori' => $this->request->getVar('idKategori'),
-        'hargaBarang' => $this->request->getVar('hargaBarang'),
+    public function updateBarang($id)
+    {
+        $data = [
 
-        // 'idBarang' => $this->request->getVar('idBarang'),
-        // 'idKategori' => $this->request->getVar('kategori'), 
-        // 'namaBarang' => $this->request->getVar('namaBarang'),
-        'stokBarang' => $this->request->getVar('stokBarang'),
-        'deskripsi' => $this->request->getVar('deskripsi'),
-        'caraPemakaian' => $this->request->getVar('caraPemakaian'),
-        'komposisiBarang' => $this->request->getVar('komposisiBarang'),
-        'klaimBarang' => $this->request->getVar('klaimBarang'),
-        'tanyaJawab' => $this->request->getVar('tanyaJawab'),
-        'noBpom' => $this->request->getVar('noBpom'),
-        'gambar' => $this->request->getVar('gambar'),
-        // 'hargaBarang' => $this->request->getVar('hargaBarang'),
-    ];
-// dd($data);
-    $this->BarangModel->update($id, $data);
+            'namaBarang' => $this->request->getVar('namaBarang'),
+            'idKategori' => $this->request->getVar('idKategori'),
+            'hargaBarang' => $this->request->getVar('hargaBarang'),
 
-    return redirect()->to('/pages/listBarang');
-}
+            // 'idBarang' => $this->request->getVar('idBarang'),
+            // 'idKategori' => $this->request->getVar('kategori'), 
+            // 'namaBarang' => $this->request->getVar('namaBarang'),
+            'stokBarang' => $this->request->getVar('stokBarang'),
+            'deskripsi' => $this->request->getVar('deskripsi'),
+            'caraPemakaian' => $this->request->getVar('caraPemakaian'),
+            'komposisiBarang' => $this->request->getVar('komposisiBarang'),
+            'klaimBarang' => $this->request->getVar('klaimBarang'),
+            'tanyaJawab' => $this->request->getVar('tanyaJawab'),
+            'noBpom' => $this->request->getVar('noBpom'),
+            'gambar' => $this->request->getVar('gambar'),
+            // 'hargaBarang' => $this->request->getVar('hargaBarang'),
+        ];
+        // dd($data);
+        $this->BarangModel->update($id, $data);
 
-public function hapusBarang($idBarang)
-{
-    $this->BarangModel->delete($idBarang);
+        return redirect()->to('/pages/listBarang');
+    }
 
-    return redirect()->to('/pages/listBarang');
-}
+    public function hapusBarang($idBarang)
+    {
+        $this->BarangModel->delete($idBarang);
+
+        return redirect()->to('/pages/listBarang');
+    }
 
 
 
@@ -278,15 +268,6 @@ public function hapusBarang($idBarang)
     }
 
 
-    // public function barang()
-    // {
-    //     session();
-    //     $data = [
-    //         'validation' => \Config\Services::validation(),
-    //         'barang' => $this->BarangModel->findAll()
-    //     ];
-    //     return view('pages/barang', $data);
-    // }
 
     public function barang()
     {
@@ -294,23 +275,23 @@ public function hapusBarang($idBarang)
 
         $barangModel = new BarangModel();
         $data['barang'] = $barangModel->findAll();
-    
+
         // Ambil data kategori
         $kategoriModel = new KategoriModel();
         $data['kategori'] = $kategoriModel->findAll();
-    
+
         return view('pages/barang', $data);
     }
-    
+
 
     public function kategori()
     {
         session();
         $data = [
-            'validation'=>\Config\Services::validation(),
-            'kategori'=> $this-> KategoriModel->findAll()
+            'validation' => \Config\Services::validation(),
+            'kategori' => $this->KategoriModel->findAll()
         ];
-        return view('pages/kategori',$data);
+        return view('pages/kategori', $data);
     }
 
     public function aboutUs()
@@ -337,6 +318,7 @@ public function hapusBarang($idBarang)
         return view('pages/notaPesanan', $data);
     }
 
+
     public function editPembayaran($id)
     {
 
@@ -356,6 +338,39 @@ public function hapusBarang($idBarang)
     }
 
 
+
+
+
+    public function savePesanan()
+    {
+        // Ambil data dari formulir
+        $idBarang = $this->request->getPost('idBarang');
+        $jumlahPesanan = $this->request->getPost('jumlahBarang');
+        $metodePembayaran = $this->request->getPost('metodePembayaran');
+        $metodePengiriman = $this->request->getPost('metodePengiriman');
+        // Fetch data barang
+        $barang = $this->BarangModel->getBarang($idBarang);
+    
+        // Pastikan stok barang mencukupi
+        if ($barang['stokBarang'] >= $jumlahPesanan) {
+            // Kurangi stok barang
+            $this->PemesananModel->kurangiStokBarang($idBarang, $jumlahPesanan);
+    
+            // Simpan pesanan
+            $dataPesanan = [
+                'jumlahBarang' => $this->request->getVar('jumlahBarang'),
+                'metodePembayaran' => $this->request->getVar('metodePembayaran'),
+                'metodePengiriman' => $this->request->getVar('metodePengiriman')
+                       ];
+            $this->PemesananModel->save($dataPesanan);
+    
+            // Redirect ke halaman sukses
+            return redirect()->to('/pages/success');
+        } else {
+            // Redirect kembali ke halaman sebelumnya dengan pesan kesalahan
+            return redirect()->back()->withInput()->with('error', 'Stok barang tidak mencukupi');
+        }
+    }
 
 
     public function success()
@@ -385,7 +400,7 @@ public function hapusBarang($idBarang)
             $BarangModel = new BarangModel();
             $data = [
                 'idBarang' => $this->request->getVar('idBarang'),
-                'idKategori' => $this->request->getVar('kategori'), 
+                'idKategori' => $this->request->getVar('kategori'),
                 'namaBarang' => $this->request->getVar('namaBarang'),
                 'stokBarang' => $this->request->getVar('stokBarang'),
                 'deskripsi' => $this->request->getVar('deskripsi'),
@@ -405,32 +420,32 @@ public function hapusBarang($idBarang)
         }
     }
 
-    
-    public function saveKategori(){
+
+    public function saveKategori()
+    {
 
         helper(['form']);
         $rules = [
             'idKategori' => [
-                'rules'=>'is_unique[kategori.idKategori]',
-                'errors'=>[
-                    'is_unique'=> 'ID kategori sudah terdaftar!!'
+                'rules' => 'is_unique[kategori.idKategori]',
+                'errors' => [
+                    'is_unique' => 'ID kategori sudah terdaftar!!'
                 ]
             ]
         ];
-          
-        if($this->validate($rules)){
+
+        if ($this->validate($rules)) {
             $KategoriModel = new KategoriModel();
             $data = [
                 'idKategori' => $this->request->getVar('idKategori'),
-                'namaKategori'=>$this->request->getVar('namaKategori'),
+                'namaKategori' => $this->request->getVar('namaKategori'),
             ];
             $KategoriModel->save($data);
             return redirect()->to('/');
-        }else{
+        } else {
             $data['validation'] = $this->validator;
             echo view('pages/kategori', $data); // Ganti pages/kategori dengan view yang sesuai
-        }      
-        
+        }
     }
 
     public function savePelanggan()
@@ -461,20 +476,7 @@ public function hapusBarang($idBarang)
     }
 
 
-    public function savePesanan()
-    {
-
-
-
-        $this->PemesananModel->save([
-            'jumlahBarang' => $this->request->getVar('jumlahBarang'),
-            'metodePembayaran' => $this->request->getVar('metodePembayaran'),
-            'metodePengiriman' => $this->request->getVar('metodePengiriman')
-        ]);
-
-        return redirect()->to('/pages/success');
-    }
-
+    
 
     public function savePembayaran()
     {

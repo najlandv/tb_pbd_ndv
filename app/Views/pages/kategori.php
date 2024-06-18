@@ -5,7 +5,7 @@
     <a href="/" class="btn btn-primary mx-3 my-3">Kembali</a>
     <div class="row justify-content-center">
         <div class="col-lg-8">
-            <div class="container w-100 mt-5 con-buku">
+            <div class="container w-100 mt-5 con-barang">
                 <?php $validation = \Config\Services::validation(); ?>
                 <form action="/pages/saveKategori" method="post" enctype="multipart/form-data">
                     <div class="mb-3">

@@ -47,9 +47,7 @@
     <input list="list-kelurahan" type="text" name="kelurahan" id="kelurahan" class="form-control" oninput="updateAlamat()">
     <datalist id="list-kelurahan">
         <!-- Opsi kelurahan -->
-        <option value="Kelurahan 1">
-        <option value="Kelurahan 2">
-        <!-- Tambahkan opsi kelurahan lainnya sesuai kebutuhan -->
+        <option value="Kelurahan Cupak">
     </datalist>
 </div>
 
@@ -58,9 +56,7 @@
     <input list="list-kecamatan" type="text" name="kecamatan" id="kecamatan" class="form-control" oninput="updateAlamat()">
     <datalist id="list-kecamatan">
         <!-- Opsi kecamatan -->
-        <option value="Kecamatan 1">
-        <option value="Kecamatan 2">
-        <!-- Tambahkan opsi kecamatan lainnya sesuai kebutuhan -->
+        <option value="Kecamatan Pauh">
     </datalist>
 </div>
 
@@ -80,7 +76,6 @@
         <!-- Opsi provinsi -->
         <option value="DKI Jakarta">
         <option value="Sumatera Barat">
-        <!-- Tambahkan opsi provinsi lainnya sesuai kebutuhan -->
     </datalist>
 </div>
 
@@ -91,7 +86,6 @@
         <!-- Opsi negara -->
         <option value="Indonesia">
         <option value="Malaysia">
-        <!-- Tambahkan opsi negara lainnya sesuai kebutuhan -->
     </datalist>
 </div>
 

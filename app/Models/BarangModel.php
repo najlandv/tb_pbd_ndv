@@ -19,4 +19,15 @@ class BarangModel extends Model
 
         return $this->where(['idBarang'=>$id])->first();
     }
+    public function updateStokBarang($id, $jumlahPesanan)
+    {
+        $barang = $this->getBarang($id);
+        if ($barang && $barang['stokBarang'] >= $jumlahPesanan) {
+            $newStok = $barang['stokBarang'] - $jumlahPesanan;
+            return $this->update($id, ['stokBarang' => $newStok]);
+        }
+        return false;
+    }
+    
+
 }
